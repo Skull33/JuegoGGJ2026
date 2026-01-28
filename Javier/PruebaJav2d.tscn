@@ -1,14 +1,16 @@
-[gd_scene load_steps=23 format=4 uid="uid://8g4ahl6q63gt"]
+[gd_scene load_steps=26 format=4 uid="uid://8g4ahl6q63gt"]
 
 [ext_resource type="Texture2D" uid="uid://bhk17wh8a13ui" path="res://Javier/Tiles/Muro.png" id="1_6ywqt"]
 [ext_resource type="Texture2D" uid="uid://cisnhstf0d3pn" path="res://Javier/Tiles/MuroMetal.png" id="2_6721b"]
 [ext_resource type="Texture2D" uid="uid://dhic8bhifiq75" path="res://Javier/Tiles/Piso.png" id="3_uvar2"]
 [ext_resource type="Texture2D" uid="uid://dt831u2vqojef" path="res://Javier/Tiles/safezone.png" id="4_63qgv"]
 [ext_resource type="Texture2D" uid="uid://doqcj5v8g6dp0" path="res://Javier/CharacterSample/Run (1).png" id="5_fc0oq"]
-[ext_resource type="Script" uid="uid://cpafretbqlxl1" path="res://Javier/MovimientosJugadorXample.gd" id="5_v2y4j"]
+[ext_resource type="Script" uid="uid://cpafretbqlxl1" path="res://Javier/AssetsJAV/MovimientosJugadorXample.gd" id="5_v2y4j"]
 [ext_resource type="Texture2D" uid="uid://cfk7ayk4ekeqy" path="res://Javier/CharacterSample/Walk (2).png" id="6_v2y4j"]
 [ext_resource type="Texture2D" uid="uid://y5gq7i76fmow" path="res://Javier/CharacterSample/Run (3).png" id="7_vmkci"]
 [ext_resource type="Texture2D" uid="uid://d2jgv73pgt72r" path="res://Javier/CharacterSample/Run (5).png" id="8_ixpb0"]
+[ext_resource type="Script" uid="uid://cp2j4dum0w7bm" path="res://Javier/IAEnemigo.gd" id="10_ixpb0"]
+[ext_resource type="Texture2D" uid="uid://bntmrgx3gpul0" path="res://Javier/CharacterSample/NamesKing.png" id="11_ai5sn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6ywqt"]
 texture = ExtResource("3_uvar2")
@@ -1547,6 +1549,8 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v2y4j"]
+
 [node name="PruebaJav2d" type="Node2D"]
 
 [node name="Capa1" type="Node2D" parent="."]
@@ -1559,8 +1563,9 @@ tile_set = SubResource("TileSet_fc0oq")
 tile_map_data = PackedByteArray("AAD9//v/AAABAAAAAAD9//z/AAABAAEAAAD9//3/AAABAAIAAAD9//7/AAABAAMAAAD9////AAABAAQAAAD9/wAAAAABAAUAAAD9/wEAAAABAAYAAAD9/wIAAAABAAcAAAD9/wMAAAABAAgAAAACAPv/AAABAAAAAAACAPz/AAABAAEAAAACAP3/AAABAAIAAAACAP7/AAABAAMAAAACAP//AAABAAQAAAACAAAAAAABAAUAAAACAAEAAAABAAYAAAACAAIAAAABAAcAAAACAAMAAAABAAgAAAD9/wQAAAABAAAAAAD9/wUAAAABAAEAAAD9/wYAAAABAAIAAAD9/wcAAAABAAMAAAD9/wgAAAABAAQAAAD9/wkAAAABAAUAAAD9/woAAAABAAYAAAD9/wsAAAABAAcAAAD9/wwAAAABAAgAAAACAAQAAAABAAAAAAACAAUAAAABAAEAAAACAAYAAAABAAIAAAACAAcAAAABAAMAAAACAAgAAAABAAQAAAACAAkAAAABAAUAAAACAAoAAAABAAYAAAACAAsAAAABAAcAAAACAAwAAAABAAgAAAACAPr/AAACAAMAAAADAPr/AAADAAMAAAAEAPr/AAAEAAMAAAAFAPr/AAAFAAMAAAD6//r/AAACAAMAAAD7//r/AAADAAMAAAD8//r/AAAEAAMAAAD9//r/AAAFAAMAAAD6/w0AAAACAAMAAAD7/w0AAAADAAMAAAD8/w0AAAAEAAMAAAD9/w0AAAAFAAMAAAACAA0AAAACAAMAAAADAA0AAAADAAMAAAAEAA0AAAAEAAMAAAAFAA0AAAAFAAMAAAAGAA0AAAACAAMAAAAHAA0AAAADAAMAAAAIAA0AAAAEAAMAAAAJAA0AAAAFAAMAAAD2/w0AAAACAAMAAAD3/w0AAAADAAMAAAD4/w0AAAAEAAMAAAD5/w0AAAAFAAMAAAD2//r/AAACAAMAAAD3//r/AAADAAMAAAD4//r/AAAEAAMAAAD5//r/AAAFAAMAAAAHAPr/AAACAAMAAAAIAPr/AAADAAMAAAAJAPr/AAAEAAMAAAAKAPr/AAAFAAMAAAADAAMAAAACAAMAAAAEAAMAAAADAAMAAAAFAAMAAAAEAAMAAAAGAAMAAAAFAAMAAAAHAAMAAAACAAMAAAAIAAMAAAADAAMAAAAJAAMAAAAEAAMAAAAKAAMAAAAFAAMAAAAOAPj/AAAPAAEAAAAOAPn/AAAPAAIAAAAOAPr/AAAPAAMAAAAOAPv/AAAPAAQAAAAOAPz/AAAPAAUAAAAOAP3/AAAPAAYAAAAOAP7/AAAPAAcAAAAOAP//AAAPAAgAAAAOAAAAAAAPAAkAAAAOAAEAAAAPAAEAAAAOAAIAAAAPAAIAAAAOAAMAAAAPAAMAAAAOAAQAAAAPAAQAAAAOAAUAAAAPAAUAAAAOAAYAAAAPAAYAAAAOAAcAAAAPAAEAAAAOAAgAAAAPAAIAAAAOAAkAAAAPAAMAAAAOAAoAAAAPAAQAAAAOAAsAAAAPAAUAAAAOAAwAAAAPAAYAAAAOAA0AAAAPAAcAAAAOAA4AAAAPAAgAAAAOAA8AAAAPAAkAAAD//w8AAAAAAAsAAAAAAA8AAAABAAsAAAABAA8AAAACAAsAAAACAA8AAAADAAsAAAADAA8AAAAEAAsAAAAEAA8AAAAFAAsAAAAFAA8AAAAGAAsAAAAGAA8AAAAHAAsAAAAHAA8AAAAIAAsAAAAIAA8AAAAJAAsAAAAJAA8AAAAKAAsAAAAKAA8AAAALAAsAAAALAA8AAAAMAAsAAAAMAA8AAAANAAsAAAANAA8AAAAOAAsAAADw/w8AAAAAAAsAAADx/w8AAAABAAsAAADy/w8AAAACAAsAAADz/w8AAAADAAsAAAD0/w8AAAAEAAsAAAD1/w8AAAAFAAsAAAD2/w8AAAAGAAsAAAD3/w8AAAAHAAsAAAD4/w8AAAAIAAsAAAD5/w8AAAAJAAsAAAD6/w8AAAAKAAsAAAD7/w8AAAALAAsAAAD8/w8AAAAMAAsAAAD9/w8AAAANAAsAAAD+/w8AAAAOAAsAAADw/wQAAAABAAEAAADw/wUAAAABAAIAAADw/wYAAAABAAMAAADw/wcAAAABAAQAAADw/wgAAAABAAUAAADw/wkAAAABAAYAAADw/woAAAABAAcAAADw/wsAAAABAAgAAADw/wwAAAABAAkAAADw/w0AAAABAAoAAADw/w4AAAABAAsAAADw//n/AAABAAEAAADw//r/AAABAAIAAADw//v/AAABAAMAAADw//z/AAABAAQAAADw//3/AAABAAUAAADw//7/AAABAAYAAADw////AAABAAcAAADw/wAAAAABAAgAAADw/wEAAAABAAkAAADw/wIAAAABAAoAAADw/wMAAAABAAsAAAD///f/AAAPAAAAAAAAAPf/AAABAAAAAAABAPf/AAACAAAAAAACAPf/AAADAAAAAAADAPf/AAAEAAAAAAAEAPf/AAAFAAAAAAAFAPf/AAAGAAAAAAAGAPf/AAAHAAAAAAAHAPf/AAAIAAAAAAAIAPf/AAAJAAAAAAAJAPf/AAAKAAAAAAAKAPf/AAALAAAAAAALAPf/AAAMAAAAAAAMAPf/AAANAAAAAAANAPf/AAAOAAAAAAAOAPf/AAAPAAAAAADw//f/AAAAAAAAAADx//f/AAABAAAAAADy//f/AAACAAAAAADz//f/AAADAAAAAAD0//f/AAAEAAAAAAD1//f/AAAFAAAAAAD2//f/AAAGAAAAAAD3//f/AAAHAAAAAAD4//f/AAAIAAAAAAD5//f/AAAJAAAAAAD6//f/AAAKAAAAAAD7//f/AAALAAAAAAD8//f/AAAMAAAAAAD9//f/AAANAAAAAAD+//f/AAAOAAAAAAD5/wkAAwAEAAQAAAD5/woAAwAEAAUAAAD5/wsAAwAEAAYAAAD5/wwAAwAEAAcAAAD6/wkAAwAFAAQAAAD6/woAAwAFAAUAAAD6/wsAAwAFAAYAAAD6/wwAAwAFAAcAAAD7/wkAAwAGAAQAAAD7/woAAwAGAAUAAAD7/wsAAwAGAAYAAAD7/wwAAwAGAAcAAAD8/wkAAwAHAAQAAAD8/woAAwAHAAUAAAD8/wsAAwAHAAYAAAD8/wwAAwAHAAcAAAA=")
 tile_set = SubResource("TileSet_k03dt")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." groups=["player"]]
 scale = Vector2(0.7, 0.7)
+collision_mask = 15
 script = ExtResource("5_v2y4j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
@@ -1573,3 +1578,35 @@ sprite_frames = SubResource("SpriteFrames_oati4")
 animation = &"Caminar"
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+
+[node name="Enemigo" type="CharacterBody2D" parent="." node_paths=PackedStringArray("waypoint")]
+position = Vector2(-203, -112)
+script = ExtResource("10_ixpb0")
+velocidad = 100.0
+waypoint = [NodePath("../ListWaypoint/1"), NodePath("../ListWaypoint/2"), NodePath("../ListWaypoint/3")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemigo"]
+shape = SubResource("RectangleShape2D_v2y4j")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemigo"]
+position = Vector2(9.536743e-07, 0)
+scale = Vector2(0.044843055, 0.038759682)
+texture = ExtResource("11_ai5sn")
+
+[node name="Area2D" type="Area2D" parent="Enemigo"]
+collision_layer = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Enemigo/Area2D"]
+position = Vector2(1, 0)
+polygon = PackedVector2Array(200, -15, 0, 0, 200, 15)
+
+[node name="ListWaypoint" type="Node2D" parent="."]
+
+[node name="1" type="Marker2D" parent="ListWaypoint"]
+position = Vector2(-198, -113)
+
+[node name="2" type="Marker2D" parent="ListWaypoint"]
+position = Vector2(186, -110)
+
+[node name="3" type="Marker2D" parent="ListWaypoint"]
+position = Vector2(196, 214)
