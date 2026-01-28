@@ -1609,4 +1609,4 @@ position = Vector2(-198, -113)
 position = Vector2(186, -110)
 
 [node name="3" type="Marker2D" parent="ListWaypoint"]
-position = Vector2(196, 214)
+position = Vector2(196, 164)
