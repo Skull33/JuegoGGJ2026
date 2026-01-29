@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://wppqqgd7io8s"]
 
-[ext_resource type="Script" uid="uid://cgamdwdpare0b" path="res://Alonzo/jugador.gd" id="1_wkx0o"]
+[ext_resource type="Script" uid="uid://cgamdwdpare0b" path="res://Alonzo/Scripts/jugador.gd" id="1_wkx0o"]
 [ext_resource type="Texture2D" uid="uid://cs3ws110u71gt" path="res://Alonzo/sprites/template personaje.png" id="2_vvq4a"]
-[ext_resource type="Script" uid="uid://c6hkbq2vjcpae" path="res://Alonzo/ray_cast_2d.gd" id="3_vvq4a"]
+[ext_resource type="Script" uid="uid://c6hkbq2vjcpae" path="res://Alonzo/Scripts/ray_cast_2d.gd" id="3_vvq4a"]
 
 [sub_resource type="Animation" id="Animation_0mswh"]
 length = 0.001
@@ -56,7 +56,7 @@ libraries = {
 }
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)
+zoom = Vector2(1.74, 1.74)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.25, 0.2500002)

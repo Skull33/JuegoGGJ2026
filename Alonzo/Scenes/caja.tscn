@@ -1,8 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://er8gdyy03c82"]
+[gd_scene load_steps=8 format=3 uid="uid://er8gdyy03c82"]
 
 [ext_resource type="Texture2D" uid="uid://birw0nnnnhwme" path="res://Alonzo/sprites/caja_example.png" id="1_a7ipy"]
-[ext_resource type="Script" uid="uid://3575or1kbd87" path="res://caja.gd" id="1_qfw4h"]
-[ext_resource type="Texture2D" uid="uid://dyu7x5msqfcy1" path="res://Alonzo/sprites/bolsas de basura.png" id="2_43avb"]
+[ext_resource type="Script" uid="uid://3575or1kbd87" path="res://Alonzo/Scripts/caja.gd" id="1_qfw4h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qfw4h"]
 size = Vector2(13.928349, 13.214869)
@@ -16,18 +15,6 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D2:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -53,18 +40,6 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_eq67o"]
 resource_name = "abrir bolsa"
 length = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D2:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [0, 1]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_eq67o"]
 _data = {
@@ -74,37 +49,16 @@ _data = {
 }
 
 [node name="desperdicios 1" type="Node2D"]
-script = ExtResource("1_qfw4h")
-
-[node name="Marker2D2" type="Marker2D" parent="."]
-position = Vector2(-1.0000038, -15.000004)
-rotation = 0.7295476
-scale = Vector2(0.9999999, 0.9999999)
-
-[node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(16, 0)
-rotation = 0.3647738
-scale = Vector2(0.99999994, 0.99999994)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(16, 0)
-rotation = 0.3647738
 texture = ExtResource("1_a7ipy")
 hframes = 2
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D"]
+script = ExtResource("1_qfw4h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
-position = Vector2(-0.28873444, -0.6454706)
-scale = Vector2(1.0000005, 1.0000005)
 shape = SubResource("RectangleShape2D_qfw4h")
-
-[node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(-1.9999981, -17)
-rotation = -0.50265485
-scale = Vector2(0.8, 0.8)
-texture = ExtResource("2_43avb")
-hframes = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
