@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://ipl0bftw2jgn"]
+[gd_scene load_steps=19 format=4 uid="uid://d2ewc5f67lgkw"]
 
 [ext_resource type="Texture2D" uid="uid://cvch3cu2i8dn1" path="res://Alonzo/sprites/tiles_Luis.png" id="2_0mswh"]
 [ext_resource type="PackedScene" uid="uid://lklgpeo08idf" path="res://Alonzo/puerta_madera.tscn" id="4_bqoy3"]
