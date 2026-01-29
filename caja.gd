@@ -1,3 +1,4 @@
+class_name basura_atico
 extends Node2D
 
 @onready var spaws_llave = [
