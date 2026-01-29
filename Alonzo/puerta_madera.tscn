@@ -1,13 +1,100 @@
-[gd_scene load_steps=4 format=3 uid="uid://lklgpeo08idf"]
+[gd_scene load_steps=10 format=3 uid="uid://lklgpeo08idf"]
 
 [ext_resource type="Texture2D" uid="uid://bxwxqydsfnxu3" path="res://Alonzo/sprites/puerta_madera.png" id="1_oe61n"]
-[ext_resource type="Script" uid="uid://di5p6ahmxf5iw" path="res://puerta_madera.gd" id="1_s2vnc"]
+
+[sub_resource type="GDScript" id="GDScript_dnggf"]
+script/source = "extends Node2D
+
+@onready var abrir_1 = $Bisabra/Area2D
+@onready var abrir_2 = $Bisabra/Area2D2
+@onready var animaciones = $AnimationPlayer
+
+
+func _on_area_2d_body_entered(body):
+	if body.is_in_group(\"Jugador\"):
+		animaciones.play(\"abrir 2\")
+
+
+func _on_area_2d_body_exited(body):
+	if body.is_in_group(\"Jugador\"):
+		await(get_tree().create_timer(2).timeout)
+		animaciones.play_backwards(\"abrir 2\")
+
+
+func _on_area_2d_2_body_entered(body: Node2D) -> void:
+	if body.is_in_group(\"Jugador\"):
+		animaciones.play(\"abrir 1\")
+
+
+func _on_area_2d_2_body_exited(body: Node2D) -> void:
+	if body.is_in_group(\"Jugador\"):
+		await(get_tree().create_timer(2).timeout)
+		animaciones.play_backwards(\"abrir 1\")
+"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s2vnc"]
-size = Vector2(16, 4)
+size = Vector2(16, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dnggf"]
+size = Vector2(16, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kq3yf"]
+size = Vector2(16, 2)
+
+[sub_resource type="Animation" id="Animation_dnggf"]
+resource_name = "abrir 1"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bisabra:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -1.5707964]
+}
+
+[sub_resource type="Animation" id="Animation_kq3yf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bisabra:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_ec7r6"]
+resource_name = "abrir 2"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bisabra:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.5707964]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kq3yf"]
+_data = {
+&"RESET": SubResource("Animation_kq3yf"),
+&"abrir 1": SubResource("Animation_dnggf"),
+&"abrir 2": SubResource("Animation_ec7r6")
+}
 
 [node name="Puerta_Madera" type="Node2D"]
-script = ExtResource("1_s2vnc")
+script = SubResource("GDScript_dnggf")
 
 [node name="Bisabra" type="Node2D" parent="."]
 position = Vector2(-8, 0)
@@ -16,9 +103,33 @@ position = Vector2(-8, 0)
 position = Vector2(8, 0)
 texture = ExtResource("1_oe61n")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="Bisabra"]
+position = Vector2(8, 0)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bisabra/Area2D"]
+position = Vector2(0, -1.5)
 shape = SubResource("RectangleShape2D_s2vnc")
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[node name="Area2D2" type="Area2D" parent="Bisabra"]
+position = Vector2(8, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bisabra/Area2D2"]
+position = Vector2(0, 1.5000005)
+shape = SubResource("RectangleShape2D_dnggf")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Bisabra"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bisabra/StaticBody2D"]
+position = Vector2(7.9999995, -4.7683716e-07)
+shape = SubResource("RectangleShape2D_kq3yf")
+debug_color = Color(0.97365874, 0, 0.4357988, 0.41960785)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_kq3yf")
+}
+
+[connection signal="body_entered" from="Bisabra/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Bisabra/Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="Bisabra/Area2D2" to="." method="_on_area_2d_2_body_entered"]
+[connection signal="body_exited" from="Bisabra/Area2D2" to="." method="_on_area_2d_2_body_exited"]

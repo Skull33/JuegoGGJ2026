@@ -1,15 +1,15 @@
-[gd_scene load_steps=18 format=4 uid="uid://ipl0bftw2jgn"]
+[gd_scene load_steps=19 format=4 uid="uid://ipl0bftw2jgn"]
 
-[ext_resource type="Texture2D" uid="uid://dhic8bhifiq75" path="res://Javier/Tiles/Piso.png" id="1_5e1mo"]
 [ext_resource type="Texture2D" uid="uid://cvch3cu2i8dn1" path="res://Alonzo/sprites/tiles_Luis.png" id="2_0mswh"]
-[ext_resource type="Texture2D" uid="uid://bhk17wh8a13ui" path="res://Javier/Tiles/Muro.png" id="2_bmcse"]
-[ext_resource type="Texture2D" uid="uid://cisnhstf0d3pn" path="res://Javier/Tiles/MuroMetal.png" id="3_kryd2"]
-[ext_resource type="Texture2D" uid="uid://dt831u2vqojef" path="res://Javier/Tiles/safezone.png" id="4_5drno"]
+[ext_resource type="PackedScene" uid="uid://lklgpeo08idf" path="res://Alonzo/puerta_madera.tscn" id="4_bqoy3"]
 [ext_resource type="Texture2D" uid="uid://b2ayhwfc7ysro" path="res://Alonzo/sprites/tiles_muros.png" id="5_0mswh"]
 [ext_resource type="PackedScene" uid="uid://wppqqgd7io8s" path="res://Alonzo/jugador.tscn" id="6_3t4b6"]
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_y1452"]
+load_path = "res://.godot/imported/Piso.png-f2032f91c8d7931b1eae248bbe6701a1.ctex"
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6ywqt"]
-texture = ExtResource("1_5e1mo")
+texture = SubResource("CompressedTexture2D_y1452")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -779,8 +779,11 @@ texture = ExtResource("2_0mswh")
 sources/0 = SubResource("TileSetAtlasSource_6ywqt")
 sources/1 = SubResource("TileSetAtlasSource_ct6jq")
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bqoy3"]
+load_path = "res://.godot/imported/Muro.png-77522ef49dbfd488de5dda6cff95075b.ctex"
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v2y4j"]
-texture = ExtResource("2_bmcse")
+texture = SubResource("CompressedTexture2D_bqoy3")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -1262,8 +1265,11 @@ texture = ExtResource("2_bmcse")
 15:14/0 = 0
 15:14/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1mjc8"]
+load_path = "res://.godot/imported/MuroMetal.png-2119a5c79c4f7186448e2cd7359e7bfa.ctex"
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vmkci"]
-texture = ExtResource("3_kryd2")
+texture = SubResource("CompressedTexture2D_1mjc8")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -1491,7 +1497,7 @@ texture = ExtResource("3_kryd2")
 14:14/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ixpb0"]
-texture = ExtResource("1_5e1mo")
+texture = SubResource("CompressedTexture2D_y1452")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -1817,8 +1823,11 @@ texture = ExtResource("1_5e1mo")
 16:17/0 = 0
 17:17/0 = 0
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3t4b6"]
+load_path = "res://.godot/imported/safezone.png-817f099f5700fcd885401cfcc60d3c0c.ctex"
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ai5sn"]
-texture = ExtResource("4_5drno")
+texture = SubResource("CompressedTexture2D_3t4b6")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -2435,6 +2444,14 @@ position = Vector2(-34, 8)
 tile_map_data = PackedByteArray("AAAOAAsABAAMAAAAAAACAAsABAALAAAAAAALAAsABAAMAAAAAAANAAsABAALAAAAAAA=")
 tile_set = SubResource("TileSet_k03dt")
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("6_3t4b6")]
+[node name="CharacterBody2D" parent="." groups=["Jugador"] instance=ExtResource("6_3t4b6")]
 position = Vector2(136.00002, 233.00003)
 scale = Vector2(1.7, 1.7)
+
+[node name="Puerta_Madera" parent="." instance=ExtResource("4_bqoy3")]
+position = Vector2(166, 186)
+use_x_axis = false
+
+[node name="Puerta_Madera2" parent="." instance=ExtResource("4_bqoy3")]
+position = Vector2(0, 80)
+rotation = 1.5707964

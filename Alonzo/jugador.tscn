@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://wppqqgd7io8s"]
+[gd_scene load_steps=8 format=3 uid="uid://wppqqgd7io8s"]
 
 [ext_resource type="Script" uid="uid://cgamdwdpare0b" path="res://Alonzo/jugador.gd" id="1_wkx0o"]
 [ext_resource type="Texture2D" uid="uid://cs3ws110u71gt" path="res://Alonzo/sprites/template personaje.png" id="2_vvq4a"]
+[ext_resource type="Script" uid="uid://c6hkbq2vjcpae" path="res://Alonzo/ray_cast_2d.gd" id="3_vvq4a"]
 
 [sub_resource type="Animation" id="Animation_0mswh"]
 length = 0.001
@@ -15,7 +16,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [Vector2i(2, 0)]
+"values": [Vector2i(0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_3t4b6"]
@@ -70,4 +71,8 @@ rotation = 1.5707964
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("2_vvq4a")
 hframes = 5
-frame = 2
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+rotation = 4.712389
+target_position = Vector2(0, 15)
+script = ExtResource("3_vvq4a")
