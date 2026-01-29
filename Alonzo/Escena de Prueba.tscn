@@ -2450,7 +2450,6 @@ scale = Vector2(1.7, 1.7)
 
 [node name="Puerta_Madera" parent="." instance=ExtResource("4_bqoy3")]
 position = Vector2(166, 186)
-use_x_axis = false
 
 [node name="Puerta_Madera2" parent="." instance=ExtResource("4_bqoy3")]
 position = Vector2(0, 80)
