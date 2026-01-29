@@ -1582,7 +1582,7 @@ animation = &"Caminar"
 [node name="Enemigo" type="CharacterBody2D" parent="." node_paths=PackedStringArray("waypoint")]
 position = Vector2(-203, -112)
 script = ExtResource("10_ixpb0")
-velocidad = 100.0
+velocidad = 210.0
 waypoint = [NodePath("../ListWaypoint/1"), NodePath("../ListWaypoint/2"), NodePath("../ListWaypoint/3")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemigo"]
@@ -1594,11 +1594,20 @@ scale = Vector2(0.044843055, 0.038759682)
 texture = ExtResource("11_ai5sn")
 
 [node name="Area2D" type="Area2D" parent="Enemigo"]
+position = Vector2(1, 0)
 collision_layer = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Enemigo/Area2D"]
-position = Vector2(1, 0)
-polygon = PackedVector2Array(200, -15, 0, 0, 200, 15)
+position = Vector2(-97.636314, -33.343613)
+rotation = 0.01584271
+scale = Vector2(0.991121, 0.9864311)
+polygon = PackedVector2Array(200, -15, -6, -12, -4, 91, 203, 86)
+
+[node name="AreaMinijuego" type="Area2D" parent="Enemigo"]
+
+[node name="DispararJuego" type="CollisionPolygon2D" parent="Enemigo/AreaMinijuego"]
+position = Vector2(1, -8)
+polygon = PackedVector2Array(12, 0, -12, 0, -12, 18, 12, 18)
 
 [node name="ListWaypoint" type="Node2D" parent="."]
 
