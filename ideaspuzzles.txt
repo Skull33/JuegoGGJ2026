@@ -1,0 +1,14 @@
+IDEAS PUZZLES
+---------------------------------
+1. Juego de memoria
+2. Juego de luces
+3. Puzzle ambiente (usar todo el entorno)
+4. Uso de mascaras para desbloquear objetos clave
+5. Juego de laberinto
+
+TOTAL MASCARAS
+---------------------------------
+3 mascaras
+1.
+2.
+3.
