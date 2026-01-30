@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdxybe4aucw7m"]
+
+[ext_resource type="PackedScene" uid="uid://bc34q7soabw3q" path="res://Rony/BP/PruebasNPC/NPCPruebaRony.tscn" id="1_ms6wp"]
+[ext_resource type="PackedScene" uid="uid://csxl6xq32g0or" path="res://Rony/BP/ObjetoColision/ObjetoColision.tscn" id="2_q8yv2"]
+
+[node name="RonyMapPruebas" type="Node2D"]
+
+[node name="NpcPruebaRony" parent="." instance=ExtResource("1_ms6wp")]
+z_index = 1
+position = Vector2(20, 28)
+
+[node name="ObjetoColision" parent="." instance=ExtResource("2_q8yv2")]
+position = Vector2(228, 36)
