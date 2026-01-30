@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4rrrkwdiuwci"]
+
+[ext_resource type="Script" uid="uid://cwr1r70nj1b5" path="res://Alonzo/Scenes/trozo_1.gd" id="1_nrk7g"]
+[ext_resource type="Texture2D" uid="uid://ca44ig57h7lw4" path="res://Alonzo/sprites/pieza 1.png" id="1_rbcfp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nrk7g"]
+size = Vector2(6, 6)
+
+[node name="trozo 1" type="Node2D" groups=["trozos_mascara"]]
+script = ExtResource("1_nrk7g")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_rbcfp")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_nrk7g")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

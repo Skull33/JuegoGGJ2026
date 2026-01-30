@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://blmawecrghdfq"
+path="res://.godot/imported/DialogosPrueba.dialogue-a1ac91e83db1b813249d6f709fcac481.tres"
+
+[deps]
+
+source_file="res://Rony/Dialogos/DialogosPrueba.dialogue"
+dest_files=["res://.godot/imported/DialogosPrueba.dialogue-a1ac91e83db1b813249d6f709fcac481.tres"]
+
+[params]
+
+defaults=true

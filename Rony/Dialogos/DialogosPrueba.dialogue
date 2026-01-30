@@ -1,0 +1,31 @@
+About
+Eres un hombre secuestrado por un culto hacia la calvicie, donde tú eres el principal sacrificio. 
+Recolecta los trozos de la máscara sagrada y escapa con vida. 
+No dejes que te atrapen o te romperán la cabeza.
+
+~ Start
+Desconocido: ¿Dónde demonios estoy...? Estas paredes parecen hechas de cabellos arrancados.
+Cultista: Bienvenido al templo del brillo eterno. [wait=2]Aquí veneramos la pureza de la calvicie, 
+el destino que todo hombre debe aceptar. 
+[wave]Tú eres el elegido para portar la máscara rota[/wave].
+
+~ PrimerEncuentro
+Desconocido: ¿Máscara rota? ¿Qué quieren de mí?
+Cultista: La máscara sagrada fue quebrada en siete fragmentos. 
+Cada trozo guarda un recuerdo de los antiguos calvos que se sacrificaron antes que tú. 
+Si logras reunirlos, podrás escapar... pero si fallas, tu cabeza será ofrecida al altar.
+
+~ Decision
+Desconocido: ¿Qué debería hacer ahora?
+- Buscar los fragmentos
+    Cultista: Esa es la única salida. Cada fragmento está custodiado por un guardián sin cabello.
+- Negociar con el culto
+    Cultista: No hay negociación posible. La calvicie no escucha súplicas.
+- Rendirse
+    Cultista: Si te rindes, tu destino será sellado en el brillo eterno.
+
+~ LoreExtra
+Desconocido: ¿Por qué adoran la calvicie?
+Cultista: Porque creen que el cabello es una mentira, un velo que oculta la verdad. 
+El sacrificio limpia la mente y la frente, dejando solo la luz del cráneo desnudo. 
+[wait=2]Tú serás el próximo en probar esa verdad... si no logras escapar.

@@ -11,9 +11,17 @@ config_version=5
 [application]
 
 config/name="JUEGOGGJ2026"
-run/main_scene="uid://ipl0bftw2jgn"
+run/main_scene="uid://8g4ahl6q63gt"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+
+[dialogue_manager]
+
+runtime/balloon_path="res://Rony/Dialogos/Baloon/balloon.tscn"
 
 [display]
 
@@ -22,6 +30,10 @@ window/size/viewport_height=270
 window/size/window_width_override=1280
 window/size/window_height_override=720
 window/stretch/mode="canvas_items"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
 
 [file_customization]
 
@@ -37,6 +49,8 @@ folder_colors={
 [global_group]
 
 Jugador=""
+trozos_mascara=""
+escena=""
 
 [input]
 
@@ -65,6 +79,10 @@ Interactuar={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":69,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
 ]
 }
+
+[internationalization]
+
+locale/translations_pot_files=PackedStringArray("res://Rony/Dialogos/DialogosPrueba.dialogue")
 
 [rendering]
 

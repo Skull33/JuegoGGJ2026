@@ -1,0 +1,115 @@
+[gd_scene load_steps=8 format=3 uid="uid://3botttmt4adj"]
+
+[ext_resource type="Script" uid="uid://y38xlbcrt66y" path="res://Alonzo/Scenes/puerta_final.gd" id="1_6fpuj"]
+[ext_resource type="Texture2D" uid="uid://ceegmyg31md6y" path="res://Alonzo/sprites/puerta_metal.png" id="1_7nnej"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6fpuj"]
+size = Vector2(16, 2)
+
+[sub_resource type="Animation" id="Animation_7nnej"]
+resource_name = "abrir"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bisagra 2:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -1.5707964]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Bisagra 1:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.5707964]
+}
+
+[sub_resource type="Animation" id="Animation_6fpuj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bisagra 2:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Bisagra 1:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3bql3"]
+_data = {
+&"RESET": SubResource("Animation_6fpuj"),
+&"abrir": SubResource("Animation_7nnej")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7nnej"]
+size = Vector2(36, 2)
+
+[node name="puerta final" type="Node2D"]
+script = ExtResource("1_6fpuj")
+
+[node name="Bisagra 1" type="Node2D" parent="."]
+position = Vector2(-8, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Bisagra 1"]
+position = Vector2(8, 0)
+texture = ExtResource("1_7nnej")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Bisagra 1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bisagra 1/StaticBody2D"]
+position = Vector2(8, 0)
+shape = SubResource("RectangleShape2D_6fpuj")
+debug_color = Color(0.9951244, 0, 0.21842524, 0.41960785)
+
+[node name="Bisagra 2" type="Node2D" parent="."]
+position = Vector2(24, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Bisagra 2"]
+position = Vector2(-8, 0)
+texture = ExtResource("1_7nnej")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Bisagra 2"]
+position = Vector2(-16, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bisagra 2/StaticBody2D"]
+position = Vector2(8, 0)
+shape = SubResource("RectangleShape2D_6fpuj")
+debug_color = Color(0.9951244, 0, 0.21842524, 0.41960785)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_3bql3")
+}
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(8, -1)
+shape = SubResource("RectangleShape2D_7nnej")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
