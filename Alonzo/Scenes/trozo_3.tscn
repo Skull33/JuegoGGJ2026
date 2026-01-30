@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cx8w6rf1ly28m"]
+
+[ext_resource type="Texture2D" uid="uid://crrpsdxa0ncta" path="res://Alonzo/sprites/pieza 3.png" id="1_niag8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hk12f"]
+size = Vector2(6, 9)
+
+[node name="trozo 3" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_niag8")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_hk12f")

@@ -11,7 +11,7 @@ enum  Estados
 }
 var estado_actual:Estados = Estados.IDLE
 
-func _process(delta):
+func _process(_delta):
 	var direction = Vector2.ZERO
 	var mouse_pos = get_global_mouse_position()
 	var mouse_dir = (mouse_pos - global_position).normalized()

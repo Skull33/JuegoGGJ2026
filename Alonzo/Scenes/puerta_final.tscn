@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://3botttmt4adj"]
+
+[node name="puerta final" type="Node2D"]
+
+[node name="Bisagra 1" type="Node2D" parent="."]
+
+[node name="Bisagra 2" type="Node2D" parent="."]
