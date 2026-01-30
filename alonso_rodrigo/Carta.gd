@@ -16,7 +16,7 @@ func _init(_id: int, _frontal: Texture2D, _reverso: Texture2D):
 	self.texture_normal = _reverso
 	self.ignore_texture_size = true
 	self.stretch_mode = TextureButton.STRETCH_KEEP_ASPECT_CENTERED
-	self.custom_minimum_size = Vector2(140, 140)
+	self.custom_minimum_size = Vector2(40, 40)
 	self.pivot_offset = Vector2(70, 70) # Centro del pivote para transformaciones simétricas
 
 func _ready():

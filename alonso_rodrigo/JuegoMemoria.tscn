@@ -1,3 +1,9 @@
-[gd_scene format=3 uid="uid://dl7y8j2wfxdha"]
+[gd_scene load_steps=2 format=3 uid="uid://dl7y8j2wfxdha"]
 
-[node name="JuegoMemoria" type="Node2D"]
+[ext_resource type="Script" uid="uid://2timrha27f2a" path="res://alonso_rodrigo/JuegoMemoria.gd" id="1_momhb"]
+
+[node name="JuegoMemoria" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 4
+script = ExtResource("1_momhb")

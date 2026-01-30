@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="JUEGOGGJ2026"
-run/main_scene="uid://cewqsmlj3g847"
+run/main_scene="uid://8g4ahl6q63gt"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -49,6 +49,8 @@ folder_colors={
 [global_group]
 
 Jugador=""
+trozos_mascara=""
+escena=""
 
 [input]
 

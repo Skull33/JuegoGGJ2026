@@ -23,6 +23,7 @@ func _process(delta):
 		if tiempo_restante <= 0: finalizar_juego(false)
 
 func configurar_interfaz():
+	
 	var centro = CenterContainer.new()
 	centro.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	add_child(centro)
@@ -43,10 +44,9 @@ func generar_tablero(dimension: int):
 	for i in range(total_pares_objetivo):
 		mazo.append(i); mazo.append(i)
 	mazo.shuffle()
-
 	for card_id in mazo:
-		var frontal = load("res://assets/img_" + str(card_id) + ".png")
-		var reverso = load("res://assets/reverso.png")
+		var frontal = load("res://alonso_rodrigo/assets/img_" + str(card_id) + ".png")
+		var reverso = load("res://alonso_rodrigo/assets/reverso.png")
 		var nueva_carta = clase_carta.new(card_id, frontal, reverso)
 		nueva_carta.seleccionada.connect(_on_carta_tocada)
 		contenedor_grid.add_child(nueva_carta)

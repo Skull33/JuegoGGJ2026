@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://ipl0bftw2jgn"]
+[gd_scene load_steps=34 format=4 uid="uid://ipl0bftw2jgn"]
 
 [ext_resource type="Script" uid="uid://c7rimkacdpa5v" path="res://Alonzo/Scripts/escena_de_prueba.gd" id="1_b5njd"]
 [ext_resource type="Texture2D" uid="uid://cvch3cu2i8dn1" path="res://Alonzo/sprites/tiles_Luis.png" id="2_0mswh"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://c63x3mcjc2kv7" path="res://Alonzo/Scenes/mesa.tscn" id="10_e2g4i"]
 [ext_resource type="PackedScene" uid="uid://cx8w6rf1ly28m" path="res://Alonzo/Scenes/trozo_3.tscn" id="10_hgnr5"]
 [ext_resource type="PackedScene" uid="uid://b63f3hw5xghnd" path="res://Alonzo/Scenes/trozo_4.tscn" id="11_sp1cy"]
+[ext_resource type="PackedScene" uid="uid://3botttmt4adj" path="res://Alonzo/Scenes/puerta_final.tscn" id="17_hgnr5"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_y1452"]
 load_path = "res://.godot/imported/Piso.png-f2032f91c8d7931b1eae248bbe6701a1.ctex"
@@ -2457,7 +2458,7 @@ sources/3 = SubResource("TileSetAtlasSource_ai5sn")
 sources/4 = SubResource("TileSetAtlasSource_m65vm")
 sources/5 = SubResource("TileSetAtlasSource_0mswh")
 
-[node name="Escena de prueba" type="Node2D"]
+[node name="Escena de prueba" type="Node2D" groups=["escena"]]
 script = ExtResource("1_b5njd")
 
 [node name="Atico" type="Node2D" parent="."]
@@ -2614,12 +2615,16 @@ position = Vector2(-366, -178)
 position = Vector2(273, -254)
 
 [node name="trozo 1" parent="Atico/Trozos mascara" instance=ExtResource("8_1fuq6")]
+visible = false
 
 [node name="trozo 2" parent="Atico/Trozos mascara" instance=ExtResource("9_b5njd")]
+visible = false
 
 [node name="trozo 3" parent="Atico/Trozos mascara" instance=ExtResource("10_hgnr5")]
+visible = false
 
 [node name="trozo 4" parent="Atico/Trozos mascara" instance=ExtResource("11_sp1cy")]
+visible = false
 
 [node name="CharacterBody2D" parent="." groups=["Jugador"] instance=ExtResource("6_3t4b6")]
 position = Vector2(136.00002, 233.00003)
@@ -2658,6 +2663,9 @@ rotation = 1.5707964
 [node name="Puerta_Madera6" parent="Puertas" instance=ExtResource("4_bqoy3")]
 position = Vector2(-114, -120)
 rotation = 1.5707964
+
+[node name="puerta final" parent="Puertas" instance=ExtResource("17_hgnr5")]
+position = Vector2(-210, 302)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 visible = false
