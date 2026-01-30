@@ -1,6 +1,3 @@
-
-
-
 extends Control
 
 signal minijuego_finalizado(victoria)
@@ -68,7 +65,7 @@ func verificar_par():
 	var c2 = cartas_elegidas[1]
 	
 	if c1.id == c2.id:
-		# ACIERTO: Combo cada 2 pares
+		# ACIERTO
 		pares_encontrados += 1
 		if pares_encontrados % 2 == 0: vistazo_rapido(0.6)
 		c1.destello_acierto()
@@ -77,7 +74,7 @@ func verificar_par():
 		cartas_elegidas.clear()
 		if pares_encontrados == total_pares_objetivo: finalizar_juego(true)
 	else:
-		# ERROR: Barajado Total + Pista de la Mitad
+		# ERROR
 		tiempo_restante -= 2.0
 		sacudir_tablero(25.0, 0.4)
 		
@@ -85,10 +82,7 @@ func verificar_par():
 		c1.ocultar()
 		c2.ocultar()
 		
-		# 1. Barajamos todas las que siguen boca abajo
 		await barajar_tablero_total()
-		
-		# 2. Revelamos la mitad de las restantes durante 1 segundo
 		pista_glitch_mitad()
 		
 		cartas_elegidas.clear()
@@ -109,7 +103,6 @@ func barajar_tablero_total():
 	
 	await t.finished
 	
-	# Sincronizamos el orden en el GridContainer
 	for c in cartas_a_mover:
 		contenedor_grid.move_child(c, randi() % contenedor_grid.get_child_count())
 
@@ -128,7 +121,6 @@ func pista_glitch_mitad():
 	if candidatas.size() == 0: return
 	
 	candidatas.shuffle()
-	# Calculamos la mitad (redondeado hacia arriba)
 	var cantidad = int(ceil(candidatas.size() / 2.0))
 	var seleccion = candidatas.slice(0, cantidad)
 	
@@ -136,9 +128,9 @@ func pista_glitch_mitad():
 		var t = create_tween()
 		t.tween_callback(func(): 
 			c.texture_normal = c.imagen_frontal
-			c.modulate.a = 0.3 # Opacidad sutil para el glitch
+			c.modulate.a = 0.3
 		)
-		t.tween_interval(1.0) # Duración de 1 segundo
+		t.tween_interval(1.0)
 		t.tween_callback(func(): 
 			if !c.esta_revelada:
 				c.texture_normal = c.imagen_reverso
@@ -156,7 +148,10 @@ func sacudir_tablero(intensidad: float, tiempo: float):
 func finalizar_juego(victoria: bool):
 	juego_activo = false
 	label_tiempo.text = "RESTAURADO" if victoria else "ERROR"
+	
+	# Emitimos la señal para que IAEnemigo.gd decida el resultado
 	emit_signal("minijuego_finalizado", victoria)
+	
 	await get_tree().create_timer(2.0).timeout
-	# Reemplaza con la escena de tu proyecto grupal
-	get_tree().change_scene_to_file("res://escenas/MundoPrincipal.tscn")
+	# Eliminamos el minijuego de la escena para volver al mundo
+	queue_free()
