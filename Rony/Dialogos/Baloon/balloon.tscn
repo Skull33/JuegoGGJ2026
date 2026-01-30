@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bujemtk3no4tt"]
+[gd_scene load_steps=12 format=3 uid="uid://bpu5cwqkb17wp"]
 
 [ext_resource type="Script" uid="uid://cgelj4ujfuk7i" path="res://Rony/Dialogos/Baloon/balloon.gd" id="1_36de5"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_a8ve6"]
@@ -111,7 +111,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.9961317, 1)
 theme = SubResource("Theme_qq3yp")
 
 [node name="MarginContainer" type="MarginContainer" parent="Balloon"]
@@ -120,6 +119,7 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 13.0
 offset_top = -126.0
 grow_horizontal = 2
 grow_vertical = 0
@@ -145,10 +145,6 @@ modulate = Color(1, 1, 1, 0.501961)
 layout_mode = 2
 mouse_filter = 1
 theme_override_font_sizes/normal_font_size = 10
-theme_override_font_sizes/bold_font_size = 10
-theme_override_font_sizes/bold_italics_font_size = 10
-theme_override_font_sizes/italics_font_size = 10
-theme_override_font_sizes/mono_font_size = 10
 bbcode_enabled = true
 text = "Character"
 fit_content = true
@@ -158,12 +154,7 @@ scroll_active = false
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/outline_size = 0
 theme_override_font_sizes/normal_font_size = 10
-theme_override_font_sizes/bold_font_size = 10
-theme_override_font_sizes/bold_italics_font_size = 10
-theme_override_font_sizes/italics_font_size = 10
-theme_override_font_sizes/mono_font_size = 10
 text = "Dialogue..."
 
 [node name="Control" type="Control" parent="Balloon/MarginContainer/PanelContainer/MarginContainer/HBoxContainer"]
@@ -185,14 +176,14 @@ autoplay = "progress"
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.62200004
-anchor_top = 0.49100003
-anchor_right = 0.62200004
-anchor_bottom = 0.49100003
-offset_left = -150.98918
-offset_top = -23.570007
-offset_right = 151.17972
-offset_bottom = 23.429993
+anchor_left = 0.684
+anchor_top = 0.5
+anchor_right = 0.684
+anchor_bottom = 0.5
+offset_left = -102.32001
+offset_top = -35.0
+offset_right = 102.67999
+offset_bottom = 35.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 8
