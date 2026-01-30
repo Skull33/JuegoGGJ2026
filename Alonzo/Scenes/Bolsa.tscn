@@ -1,0 +1,62 @@
+[gd_scene load_steps=7 format=3 uid="uid://ckp5orc5xpjtf"]
+
+[ext_resource type="Texture2D" uid="uid://dyu7x5msqfcy1" path="res://Alonzo/sprites/bolsas de basura.png" id="1_e041k"]
+[ext_resource type="Script" uid="uid://3575or1kbd87" path="res://Alonzo/Scripts/caja.gd" id="1_jda6f"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jda6f"]
+radius = 12.0
+
+[sub_resource type="Animation" id="Animation_bf0yo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_sab74"]
+resource_name = "abrir"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mu7x4"]
+_data = {
+&"RESET": SubResource("Animation_bf0yo"),
+&"abrir": SubResource("Animation_sab74")
+}
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_e041k")
+hframes = 2
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D"]
+script = ExtResource("1_jda6f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
+position = Vector2(0, 3)
+shape = SubResource("CircleShape2D_jda6f")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_mu7x4")
+}
