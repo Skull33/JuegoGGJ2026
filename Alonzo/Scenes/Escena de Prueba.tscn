@@ -1,5 +1,6 @@
-[gd_scene load_steps=27 format=4 uid="uid://ipl0bftw2jgn"]
+[gd_scene load_steps=33 format=4 uid="uid://ipl0bftw2jgn"]
 
+[ext_resource type="Script" uid="uid://c7rimkacdpa5v" path="res://Alonzo/Scripts/escena_de_prueba.gd" id="1_b5njd"]
 [ext_resource type="Texture2D" uid="uid://cvch3cu2i8dn1" path="res://Alonzo/sprites/tiles_Luis.png" id="2_0mswh"]
 [ext_resource type="Texture2D" uid="uid://bug3dwro5wnhi" path="res://Alonzo/sprites/ggjtileprimerpiso.png" id="2_0swb3"]
 [ext_resource type="PackedScene" uid="uid://er8gdyy03c82" path="res://Alonzo/Scenes/caja.tscn" id="3_1mjc8"]
@@ -9,7 +10,12 @@
 [ext_resource type="Texture2D" uid="uid://b2ayhwfc7ysro" path="res://Alonzo/sprites/tiles_muros.png" id="5_0mswh"]
 [ext_resource type="PackedScene" uid="uid://wppqqgd7io8s" path="res://Alonzo/Scenes/jugador.tscn" id="6_3t4b6"]
 [ext_resource type="PackedScene" uid="uid://c83la1w4bxcy0" path="res://Alonzo/Scenes/puerta_bloqueable.tscn" id="7_83sl7"]
+[ext_resource type="PackedScene" uid="uid://c4rrrkwdiuwci" path="res://Alonzo/Scenes/trozo_1.tscn" id="8_1fuq6"]
+[ext_resource type="PackedScene" uid="uid://5ctknq8e2rrd" path="res://Alonzo/Scenes/trozo_2.tscn" id="9_b5njd"]
+[ext_resource type="Texture2D" uid="uid://s8n877ef0nlk" path="res://Rony/Sprites/light.png" id="9_tmucx"]
 [ext_resource type="PackedScene" uid="uid://c63x3mcjc2kv7" path="res://Alonzo/Scenes/mesa.tscn" id="10_e2g4i"]
+[ext_resource type="PackedScene" uid="uid://cx8w6rf1ly28m" path="res://Alonzo/Scenes/trozo_3.tscn" id="10_hgnr5"]
+[ext_resource type="PackedScene" uid="uid://b63f3hw5xghnd" path="res://Alonzo/Scenes/trozo_4.tscn" id="11_sp1cy"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_y1452"]
 load_path = "res://.godot/imported/Piso.png-f2032f91c8d7931b1eae248bbe6701a1.ctex"
@@ -2452,6 +2458,7 @@ sources/4 = SubResource("TileSetAtlasSource_m65vm")
 sources/5 = SubResource("TileSetAtlasSource_0mswh")
 
 [node name="Escena de prueba" type="Node2D"]
+script = ExtResource("1_b5njd")
 
 [node name="Atico" type="Node2D" parent="."]
 
@@ -2603,9 +2610,26 @@ position = Vector2(18, -160)
 [node name="Marker2D17" type="Marker2D" parent="Atico/marcadores"]
 position = Vector2(-366, -178)
 
+[node name="Trozos mascara" type="Node2D" parent="Atico"]
+position = Vector2(273, -254)
+
+[node name="trozo 1" parent="Atico/Trozos mascara" instance=ExtResource("8_1fuq6")]
+
+[node name="trozo 2" parent="Atico/Trozos mascara" instance=ExtResource("9_b5njd")]
+
+[node name="trozo 3" parent="Atico/Trozos mascara" instance=ExtResource("10_hgnr5")]
+
+[node name="trozo 4" parent="Atico/Trozos mascara" instance=ExtResource("11_sp1cy")]
+
 [node name="CharacterBody2D" parent="." groups=["Jugador"] instance=ExtResource("6_3t4b6")]
 position = Vector2(136.00002, 233.00003)
 scale = Vector2(1.7, 1.7)
+
+[node name="PointLight2D" type="PointLight2D" parent="CharacterBody2D"]
+energy = 0.5
+shadow_enabled = true
+texture = ExtResource("9_tmucx")
+texture_scale = 0.15
 
 [node name="Puertas" type="Node2D" parent="."]
 position = Vector2(8, -8)
@@ -2634,3 +2658,9 @@ rotation = 1.5707964
 [node name="Puerta_Madera6" parent="Puertas" instance=ExtResource("4_bqoy3")]
 position = Vector2(-114, -120)
 rotation = 1.5707964
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
+position = Vector2(136.00002, 233.00003)
+scale = Vector2(1.7, 1.7)
+color = Color(0.043039218, 0.043039136, 0.04303918, 1)
