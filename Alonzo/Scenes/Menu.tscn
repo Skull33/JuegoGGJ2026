@@ -1,0 +1,105 @@
+[gd_scene load_steps=10 format=3 uid="uid://ywlhy513v80u"]
+
+[ext_resource type="Script" uid="uid://b08m1nh6mn174" path="res://Alonzo/Scripts/menu.gd" id="1_eoam4"]
+[ext_resource type="Texture2D" uid="uid://cn36ep5mvw5ay" path="res://Alonzo/sprites/mascara completa.png" id="1_lxft5"]
+[ext_resource type="FontFile" uid="uid://bjt72ayoudkjs" path="res://Alonzo/Fonts/bloodlust.ttf" id="2_se66k"]
+[ext_resource type="FontFile" uid="uid://c64ocpj2vo0hl" path="res://Alonzo/Fonts/bloodlustleft.ttf" id="3_eoam4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jc88n"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wjhlb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_15j04"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wxgcr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y4icv"]
+
+[node name="Menu" type="CanvasLayer"]
+script = ExtResource("1_eoam4")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.23300001
+anchor_top = -0.078
+anchor_right = 0.767
+anchor_bottom = 1.107
+offset_left = 0.15999603
+offset_top = 0.060001373
+offset_right = -0.16000366
+offset_bottom = 0.11001587
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_lxft5")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = -1
+anchor_left = 0.09166667
+anchor_top = 0.24259259
+anchor_right = 0.875
+anchor_bottom = 0.4722222
+offset_left = 108.0
+offset_top = 19.5
+offset_right = -108.0
+offset_bottom = -19.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_se66k")
+theme_override_font_sizes/font_size = 64
+text = "La mascara del calvo"
+metadata/_edit_use_anchors_ = true
+
+[node name="Iniciar" type="Button" parent="."]
+anchors_preset = -1
+anchor_left = 0.71875
+anchor_top = 0.55185187
+anchor_right = 0.83958334
+anchor_bottom = 0.7
+theme_override_colors/font_pressed_color = Color(0.6116844, 0.19329113, 0.18572453, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.47788018, 0.47788012, 0.47788012, 1)
+theme_override_fonts/font = ExtResource("3_eoam4")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_jc88n")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_wjhlb")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_15j04")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_wxgcr")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_y4icv")
+text = "Iniciar"
+metadata/_edit_use_anchors_ = true
+
+[node name="Salir" type="Button" parent="."]
+anchors_preset = -1
+anchor_left = 0.72083336
+anchor_top = 0.7592593
+anchor_right = 0.84166664
+anchor_bottom = 0.9074074
+theme_override_colors/font_pressed_color = Color(0.6116844, 0.19329113, 0.18572453, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.47788018, 0.47788012, 0.47788012, 1)
+theme_override_fonts/font = ExtResource("3_eoam4")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_jc88n")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_wjhlb")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_15j04")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_wxgcr")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_y4icv")
+text = "Salir"
+metadata/_edit_use_anchors_ = true

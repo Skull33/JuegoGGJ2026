@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="JUEGOGGJ2026"
-run/main_scene="uid://8g4ahl6q63gt"
+run/main_scene="uid://ywlhy513v80u"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -39,8 +39,10 @@ enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
 
 folder_colors={
 "res://Alonzo/": "red",
+"res://Alonzo/Fonts/": "pink",
 "res://Alonzo/Scenes/": "teal",
 "res://Alonzo/Scripts/": "orange",
+"res://Alonzo/Sonido/": "gray",
 "res://Alonzo/sprites/": "green",
 "res://Javier/": "purple",
 "res://alonso_rodrigo/": "gray"
@@ -51,6 +53,7 @@ folder_colors={
 Jugador=""
 trozos_mascara=""
 escena=""
+mascaraUI=""
 
 [input]
 

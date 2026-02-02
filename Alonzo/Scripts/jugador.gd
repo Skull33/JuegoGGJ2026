@@ -1,5 +1,5 @@
 extends CharacterBody2D
-
+signal trozo_conseguido(id)
 const SPEED := 100.0
 
 @onready var anims = $AnimationPlayer
@@ -10,6 +10,10 @@ enum  Estados
 	WALK
 }
 var estado_actual:Estados = Estados.IDLE
+
+func _ready():
+	for trozo in get_tree().get_nodes_in_group("trozos_mascara"):
+		trozo.trozo_recogido.connect(_on_trozo_recogido)
 
 func _process(_delta):
 	var direction = Vector2.ZERO
@@ -55,3 +59,6 @@ func cambiar_estado(nuevo_estado:Estados):
 			anims.play("RESET")
 		Estados.WALK:
 			anims.play("caminar")
+
+func _on_trozo_recogido(id):
+	trozo_conseguido.emit(id)

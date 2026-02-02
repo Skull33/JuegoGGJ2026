@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://ipl0bftw2jgn"]
+[gd_scene load_steps=36 format=4 uid="uid://ipl0bftw2jgn"]
 
 [ext_resource type="Script" uid="uid://c7rimkacdpa5v" path="res://Alonzo/Scripts/escena_de_prueba.gd" id="1_b5njd"]
 [ext_resource type="Texture2D" uid="uid://cvch3cu2i8dn1" path="res://Alonzo/sprites/tiles_Luis.png" id="2_0mswh"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://cx8w6rf1ly28m" path="res://Alonzo/Scenes/trozo_3.tscn" id="10_hgnr5"]
 [ext_resource type="PackedScene" uid="uid://b63f3hw5xghnd" path="res://Alonzo/Scenes/trozo_4.tscn" id="11_sp1cy"]
 [ext_resource type="PackedScene" uid="uid://3botttmt4adj" path="res://Alonzo/Scenes/puerta_final.tscn" id="17_hgnr5"]
+[ext_resource type="AudioStream" uid="uid://ejhq23byiprr" path="res://Alonzo/Sonido/vacio.mp3" id="18_sp1cy"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_y1452"]
 load_path = "res://.godot/imported/Piso.png-f2032f91c8d7931b1eae248bbe6701a1.ctex"
@@ -2458,6 +2459,9 @@ sources/3 = SubResource("TileSetAtlasSource_ai5sn")
 sources/4 = SubResource("TileSetAtlasSource_m65vm")
 sources/5 = SubResource("TileSetAtlasSource_0mswh")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hgnr5"]
+size = Vector2(63, 20)
+
 [node name="Escena de prueba" type="Node2D" groups=["escena"]]
 script = ExtResource("1_b5njd")
 
@@ -2540,7 +2544,8 @@ rotation = 1.5707964
 scale = Vector2(0.7, 0.7)
 
 [node name="mesa5" parent="Atico/items" instance=ExtResource("10_e2g4i")]
-position = Vector2(-366, -178)
+position = Vector2(-380, -131)
+rotation = -1.5707964
 scale = Vector2(0.7, 0.7)
 
 [node name="mesa4" parent="Atico/items" instance=ExtResource("10_e2g4i")]
@@ -2609,7 +2614,7 @@ position = Vector2(-191, -168)
 position = Vector2(18, -160)
 
 [node name="Marker2D17" type="Marker2D" parent="Atico/marcadores"]
-position = Vector2(-366, -178)
+position = Vector2(-380, -131)
 
 [node name="Trozos mascara" type="Node2D" parent="Atico"]
 position = Vector2(273, -254)
@@ -2668,7 +2673,20 @@ rotation = 1.5707964
 position = Vector2(-210, 302)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 position = Vector2(136.00002, 233.00003)
 scale = Vector2(1.7, 1.7)
 color = Color(0.043039218, 0.043039136, 0.04303918, 1)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-194, 306)
+shape = SubResource("RectangleShape2D_hgnr5")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("18_sp1cy")
+volume_db = 8.078
+pitch_scale = 2.28
+autoplay = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

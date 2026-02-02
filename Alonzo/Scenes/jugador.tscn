@@ -1,8 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://wppqqgd7io8s"]
+[gd_scene load_steps=16 format=3 uid="uid://wppqqgd7io8s"]
 
 [ext_resource type="Script" uid="uid://cgamdwdpare0b" path="res://Alonzo/Scripts/jugador.gd" id="1_wkx0o"]
 [ext_resource type="Texture2D" uid="uid://cs3ws110u71gt" path="res://Alonzo/sprites/template personaje.png" id="2_vvq4a"]
 [ext_resource type="Script" uid="uid://c6hkbq2vjcpae" path="res://Alonzo/Scripts/ray_cast_2d.gd" id="3_vvq4a"]
+[ext_resource type="Texture2D" uid="uid://cgb8k81tml1sn" path="res://Alonzo/sprites/mascaraUI.png" id="4_eh2ke"]
+[ext_resource type="Texture2D" uid="uid://coeyjovebkn4y" path="res://Alonzo/sprites/trozo_!UI.png" id="5_al17n"]
+[ext_resource type="Script" uid="uid://co8032h8xrmw1" path="res://Alonzo/Scenes/mascaraui.gd" id="5_iuth6"]
+[ext_resource type="Texture2D" uid="uid://dpbb0gg4wpqdh" path="res://Alonzo/sprites/trozo2!UI.png" id="6_iuth6"]
+[ext_resource type="Texture2D" uid="uid://bym0et34udue8" path="res://Alonzo/sprites/trozo3UI.png" id="7_u3f70"]
+[ext_resource type="Texture2D" uid="uid://loaric6hcmod" path="res://Alonzo/sprites/trozo4UI.png" id="8_5oxal"]
+[ext_resource type="Texture2D" uid="uid://bco72mkhg4xlj" path="res://Alonzo/sprites/press_E.png" id="10_u3f70"]
 
 [sub_resource type="Animation" id="Animation_0mswh"]
 length = 0.001
@@ -36,9 +43,13 @@ tracks/0/keys = {
 "values": [Vector2i(1, 0), Vector2i(2, 0), Vector2i(1, 0), Vector2i(0, 0), Vector2i(3, 0), Vector2i(4, 0), Vector2i(3, 0), Vector2i(0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_al17n"]
+resource_name = "aparecio_1"
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_m65vm"]
 _data = {
 &"RESET": SubResource("Animation_0mswh"),
+&"aparecio_1": SubResource("Animation_al17n"),
 &"caminar": SubResource("Animation_3t4b6")
 }
 
@@ -56,7 +67,7 @@ libraries = {
 }
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(1.74, 1.74)
+zoom = Vector2(3, 3)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.25, 0.2500002)
@@ -76,3 +87,64 @@ hframes = 5
 rotation = 4.712389
 target_position = Vector2(0, 15)
 script = ExtResource("3_vvq4a")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MASCARAUI" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.86041665
+anchor_top = 0.055555556
+anchor_right = 0.9604167
+anchor_bottom = 0.36296296
+texture = ExtResource("4_eh2ke")
+script = ExtResource("5_iuth6")
+metadata/_edit_use_anchors_ = true
+
+[node name="trozo_1" type="TextureRect" parent="CanvasLayer" groups=["mascaraUI"]]
+anchors_preset = -1
+anchor_left = 0.84166664
+anchor_top = 0.05185185
+anchor_right = 0.90833336
+anchor_bottom = 0.24938272
+texture = ExtResource("6_iuth6")
+metadata/_edit_use_anchors_ = true
+
+[node name="trozo_2" type="TextureRect" parent="CanvasLayer" groups=["mascaraUI"]]
+anchors_preset = -1
+anchor_left = 0.90833336
+anchor_top = 0.05185185
+anchor_right = 0.975
+anchor_bottom = 0.2493827
+texture = ExtResource("5_al17n")
+metadata/_edit_use_anchors_ = true
+
+[node name="trozo_3" type="TextureRect" parent="CanvasLayer" groups=["mascaraUI"]]
+anchors_preset = -1
+anchor_left = 0.90416664
+anchor_top = 0.24814814
+anchor_right = 0.97083336
+anchor_bottom = 0.36666667
+texture = ExtResource("8_5oxal")
+metadata/_edit_use_anchors_ = true
+
+[node name="trozo_4" type="TextureRect" parent="CanvasLayer" groups=["mascaraUI"]]
+anchors_preset = -1
+anchor_left = 0.8375
+anchor_top = 0.24814814
+anchor_right = 0.90416664
+anchor_bottom = 0.36666667
+texture = ExtResource("7_u3f70")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+visible = false
+anchors_preset = -1
+anchor_left = 0.50625
+anchor_top = 0.38148147
+anchor_right = 0.5729167
+anchor_bottom = 0.5
+offset_left = -1.5258789e-05
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_u3f70")
+metadata/_edit_use_anchors_ = true
